@@ -1,4 +1,4 @@
-<?php namespace Limoncello\Tests\Passport\Data;
+<?php namespace Limoncello\Passport\Contracts\Authentication;
 
 /**
  * Copyright 2015-2017 info@neomerx.com
@@ -16,17 +16,17 @@
  * limitations under the License.
  */
 
+use Limoncello\Contracts\Authentication\AccountInterface;
+
 /**
- * @package Limoncello\Tests\Passport
+ * @package Limoncello\Passport
  */
-class User
+interface PassportAccountInterface extends AccountInterface
 {
-    /** Table name */
-    const TABLE_NAME = 'users';
-
-    /** Field name */
-    const FIELD_ID = 'id_user';
-
-    /** Field name */
-    const FIELD_NAME = 'name';
+    /**
+     * @param array $properties
+     *
+     * @return self
+     */
+    public function setPassportProperties(array $properties): self;
 }
